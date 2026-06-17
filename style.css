@@ -31,3 +31,17 @@ body {
     text-transform: uppercase;
     color: white;
 }
+
+nav {
+    background-color: transparent;
+    padding: 24px;
+    text-align: center;
+}
+
+nav a, nav span {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin: 0 12px;
+    font-size: 22px;
+}
