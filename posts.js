@@ -1,3 +1,5 @@
+// This list conains all writing posts for the website.
+// Newest posts appear first because the code sorts them by date.
 const posts = [
     {
         title: "The Brave New World We Chose | An essay",
@@ -37,19 +39,25 @@ const posts = [
     }
 ];
 
+// This looks for the <main id="post-grid"> area in the HTML
 const postGrid = document.querySelector("#post-grid");
-
+// Only run the post code if this page actually has a post grid.
 if (postGrid) {
+
+    // Make a copy of the posts and sort them form newest to oldest.
     const sortedPosts = [...posts].sort((firstPost, secondPost) => {
-        return new Date(secondPost.date) - new DataTransfer(firstPost.date);
+        return new Date(secondPost.date) - new Date(firstPost.date);
     });
-    
+
+    // Read data- limit from the HTML. Home has a limit, Writing does not.
     const limit = Number(postGrid.dataset.limit);
 
+    // If there is a limit, show only that many posts. Otherwise, show all posts.
     const visiblePosts = limit
         ? sortedPosts.slice(0, limit)
         : sortedPosts;
 
+    // Turn every post object into HTML and place it inside the page.
     postGrid.innerHTML = visiblePosts
         .map((post) => {
             return `
@@ -60,5 +68,5 @@ if (postGrid) {
             </article>
             `;
         })
-        .join("")
+        .join("");
 }
