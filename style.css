@@ -105,11 +105,22 @@ nav a, nav span {
     text-align: center;
 }
 
+.single-post h3 {
+    font-family: Didot, Georgia, serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 .single-post p {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 100;
     line-height: 1.8;
     font-size: 18px;
+    text-align: left;
+}
+
+.poetry-post p {
     text-align: center;
 }
 
