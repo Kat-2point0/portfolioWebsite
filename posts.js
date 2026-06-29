@@ -1,4 +1,4 @@
-// This list conains all writing posts for the website.
+// This list contains all writing posts for the website.
 // Newest posts appear first because the code sorts them by date.
 const posts = [
     {
@@ -57,11 +57,17 @@ if (postGrid) {
 
     // Read data- limit from the HTML. Home has a limit, Writing does not.
     const limit = Number(postGrid.dataset.limit);
+    const category = postGrid.dataset.category;
+
+    // If the page has a category, only show posts from that category.
+    const categoryPosts = category
+        ? sortedPosts.filter((post) => post.category === category)
+        : sortedPosts;
 
     // If there is a limit, show only that many posts. Otherwise, show all posts.
     const visiblePosts = limit
-        ? sortedPosts.slice(0, limit)
-        : sortedPosts;
+        ? categoryPosts.slice(0, limit)
+        : categoryPosts;
 
     // Turn every post object into HTML and place it inside the page.
     postGrid.innerHTML = visiblePosts
